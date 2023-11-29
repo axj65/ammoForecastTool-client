@@ -6,6 +6,8 @@ import ProgressBar from "./progressbar-table";
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
 
+import configData from "../config.json";
+
 
 function Table() {
   const [data, setData] = useState([]);
@@ -25,7 +27,7 @@ function Table() {
 
     const fetchData = async () => {
       const searchParams = new URLSearchParams(query).toString();
-      const response = await fetch(`/api/tableData?${searchParams}`);
+      const response = await fetch(configData.SERVER_URL+`/api/tableData?${searchParams}`);
       const result = await response.json();
       setData(result);
     };
