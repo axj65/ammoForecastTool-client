@@ -4,6 +4,8 @@ import ProgressBar from "./progressbar-save";
 import "bootstrap/dist/css/bootstrap.css";
 import "./style.css";
 
+import configData from "../config.json";
+
 function SaveEvent() {
   const location = useLocation();
   const navigate = useNavigate();
@@ -66,7 +68,7 @@ function SaveEvent() {
     };
 
     try {
-      const response = await fetch('/saveEvent', {
+      const response = await fetch(configData.SERVER_URL+'/saveEvent', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
