@@ -6,6 +6,8 @@ import { BiDownload, BiTrash, BiCaretUp, BiCaretDown, BiEdit, BiCalendar, BiTarg
 import "bootstrap/dist/css/bootstrap.css";
 import "./style.css";
 
+import configData from "../config.json";
+
 function transformData(data, number_to_train) {
   let result = {};
 
@@ -69,7 +71,7 @@ function Myevents() {
 useEffect(() => {
   const fetchData = async () => {
     try {
-      const response = await fetch(`/myevents?userId=${userId}`, {
+      const response = await fetch(configData.SERVER_URL+`/myevents?userId=${userId}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -165,7 +167,7 @@ useEffect(() => {
   //delete event card
   const handleDelete = async (_id) => {
     try {
-      const response = await fetch(`/myevents/${_id}`, {
+      const response = await fetch(configData.SERVER_URL+`/myevents/${_id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
