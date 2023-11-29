@@ -2,6 +2,8 @@ import React, { useRef, useState, useEffect } from "react";
 import { BiAddToQueue, BiCalendarEvent, BiInfoCircle, BiSend, BiLogOut } from "react-icons/bi";
 import { NavLink, useNavigate, useLocation} from "react-router-dom";
 
+import configData from "../config.json";
+
 import "bootstrap/dist/css/bootstrap.css";
 import "./style.css";
 
@@ -43,7 +45,7 @@ export default function Sidebar({ onLogout }) {
   
     // Call the server to destroy the session
     try {
-      const response = await fetch('/logout', {
+      const response = await fetch(configData.SERVER_URL+'/logout', {
         method: 'GET',
         credentials: 'include', 
         headers: {
