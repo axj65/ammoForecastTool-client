@@ -218,6 +218,8 @@ useEffect(() => {
     return (
       <div className="container mt-main">
         <h1 className="mb-4">My Events</h1>
+        <br/>
+        <h6 className="mb-4">Must be logged in to view your saved events.</h6>
 
         {eventsData.map((event) => (
         <div key={event._id} className="card event-card mt-5">
